@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>List Sortererer</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/style.css">
 </head>
@@ -13,13 +14,22 @@
 
 		</textarea>
 
-		<button type="button" id="submit-list">Sort it out</button>
+		<div>
+			<button type="button" id="submit-list">Sort it out</button>
+		</div>
 
 		<div>Some Results</div>
 		<div id="list-output">
 			This is where your sorted list will go
 		</div>
 	</div>
+
+<script>
+	
+	$.post('/sortit', function(data) {
+		console.log("Post worked");
+	});
+</script>
 
 </body>
 </html>
