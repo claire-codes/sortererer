@@ -20,14 +20,16 @@
 
 		<div>Some Results</div>
 		<div id="list-output">
-			This is where your sorted list will go
+			Yo ho
 		</div>
 	</div>
 
 <script>
-	
-	$.post('/sortit', function(data) {
-		console.log("Post worked");
+	$('#submit-list').click(function() {
+		$.post('/sortit', function(data) {
+			console.log("Post worked");
+			$('#list-output').text(data);
+		});
 	});
 </script>
 
