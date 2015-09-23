@@ -26,10 +26,22 @@
 
 <script>
 	$('#submit-list').click(function() {
-		$.post('/sortit', function(data) {
-			console.log("Post worked");
-			$('#list-output').text(data);
-		});
+		$.ajax({
+	      url: '/sortit',
+	      // dataType: 'json',
+	      contentType: 'application/text',
+	      type: 'POST',
+	      data : { name: "Dom"},
+	      success: function(data) {
+	        console.log('Boom' + data);
+	        $('#list-output').text(data);
+	      }
+	    });
+		// $.post('/sortit', 'hi')
+		// 	.done(function(data) {
+		// 		console.log("Post worked " + data);
+		// 		$('#list-output').text(data);
+		// 	});
 	});
 </script>
 
