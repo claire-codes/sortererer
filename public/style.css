@@ -4,11 +4,26 @@ h1 {
 
 body {
 	font-family: 'Nunito', sans-serif;
+	margin: auto;
+	width: 600px;
 }
 
 #list-input {
 	width: 600px;
-	height: 200px;
+	height: 180px;
 	border: 3px solid #ccc;
 	font-family: 'Nunito', sans-serif;
+}
+
+#submit-list {
+	background-color: #ff66b5;
+	color: white;
+	border: 1px solid #ff66b5;
+	font-size: 16px;
+}
+
+#submit-list:hover {
+	background-color: white;
+	color: #ff66b5;
+	border: 1px solid #ff66b5;
 }

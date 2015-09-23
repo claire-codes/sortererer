@@ -7,6 +7,6 @@ class MyApp < Sinatra::Base
 	end
 
 	post '/sortit' do
-		'Hello World'
+		params[:name]
 	end
 end
