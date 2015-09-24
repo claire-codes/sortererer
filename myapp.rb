@@ -9,4 +9,8 @@ class MyApp < Sinatra::Base
 	post '/sortit' do
 		params[:name]
 	end
+
+	post '/goaway' do
+		params[:name]
+	end
 end

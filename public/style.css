@@ -4,7 +4,10 @@ h1 {
 
 body {
 	font-family: 'Nunito', sans-serif;
-	margin: auto;
+}
+
+#wrapper {
+	margin: 0 auto;
 	width: 600px;
 }
 

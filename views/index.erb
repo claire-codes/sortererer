@@ -8,11 +8,9 @@
 </head>
 
 <body>
-	<div>
+	<div id='wrapper'>
 		<h1>Boom</h1>
-		<textarea id="list-input" name="list-input">
-
-		</textarea>
+		<textarea id="list-input" name="list-input"></textarea>
 
 		<div>
 			<button type="button" id="submit-list">Sort it out</button>
@@ -26,22 +24,28 @@
 
 <script>
 	$('#submit-list').click(function() {
-		$.ajax({
-	      url: '/sortit',
-	      // dataType: 'json',
-	      contentType: 'application/text',
-	      type: 'POST',
-	      data : { name: "Dom"},
-	      success: function(data) {
-	        console.log('Boom' + data);
-	        $('#list-output').text(data);
-	      }
-	    });
-		// $.post('/sortit', 'hi')
-		// 	.done(function(data) {
-		// 		console.log("Post worked " + data);
-		// 		$('#list-output').text(data);
-		// 	});
+		// $.ajax({
+	 //      url: '/sortit',
+	 //      // dataType: 'json',
+	 //      contentType: 'application/text',
+	 //      type: 'POST',
+	 //      data : { name: "Dom"},
+	 //      success: function(data) {
+	 //        console.log('Boom' + data);
+	 //        $('#list-output').text(data);
+	 //      },
+	 //      complete: function(data) {
+	 //      	console.log('Done' + data);
+	 //      	console.dir(data);
+
+	 //      }
+	 //    });
+		$.post('/goaway', {name: 'hi'})
+			.done(function(data) {
+				console.log("Post worked " + data);
+				console.dir(data);
+				$('#list-output').text('Hello World');
+			});
 	});
 </script>
 
