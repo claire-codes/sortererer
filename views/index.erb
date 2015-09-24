@@ -9,14 +9,14 @@
 
 <body>
 	<div id='wrapper'>
-		<h1>Boom</h1>
+		<h1>Sortererer</h1>
 		<textarea id="list-input" name="list-input"></textarea>
 
 		<div>
 			<button type="button" id="submit-list">Sort it out</button>
 		</div>
 
-		<div>Some Results</div>
+		<div id='result-text'></div>
 		<div id="list-output">
 			Yo ho
 		</div>
@@ -40,11 +40,14 @@
 
 	 //      }
 	 //    });
-		$.post('/goaway', {name: 'hi'})
+		var unsortedList = $('#list-input').val();
+
+		$.post('/goaway', {name: unsortedList})
 			.done(function(data) {
 				console.log("Post worked " + data);
 				console.dir(data);
-				$('#list-output').text('Hello World');
+				$('#list-input').val(data);
+				$('#result-text').text('Sorted!');
 			});
 	});
 </script>
