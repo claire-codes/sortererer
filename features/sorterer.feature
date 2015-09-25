@@ -8,7 +8,7 @@ Feature: User uses site
 
 	Scenario: Send some data off alright
 	Given I am on the sorterer page
-	When I enter "foo\nbar" in the list box
+	When I enter "foo" in the list box
 	And I click the 'submit-list' button
-	Then I should see 'bar\nfoo' in the list box
+	Then I should see 'foo' in the list box
 	And I should see 'Sorted!'
