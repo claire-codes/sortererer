@@ -8,6 +8,5 @@ gem 'shotgun'
 gem 'nyan-cat-formatter'
 gem 'rake'
 gem 'capybara'
-
-gem "selenium-webdriver"
-gem "rack-test"
+gem 'selenium-webdriver'
+gem 'rack-test'

@@ -9,48 +9,31 @@
 
 <body>
 	<div id='wrapper'>
-		<h1>Sortererer</h1>
+		<h1>List Sorter</h1>
+		<h3>Alphabetises your list</h3>
 		<textarea id="list-input" name="list-input"></textarea>
 
 		<div>
 			<button type="button" id="submit-list">Sort it out</button>
 		</div>
 
-		<div id='result-text'></div>
-		<div id="list-output">
-			Yo ho
-		</div>
+		<div id="result-text"></div>
 	</div>
 
-<script>
-	$('#submit-list').click(function() {
-		// $.ajax({
-	 //      url: '/sortit',
-	 //      // dataType: 'json',
-	 //      contentType: 'application/text',
-	 //      type: 'POST',
-	 //      data : { name: "Dom"},
-	 //      success: function(data) {
-	 //        console.log('Boom' + data);
-	 //        $('#list-output').text(data);
-	 //      },
-	 //      complete: function(data) {
-	 //      	console.log('Done' + data);
-	 //      	console.dir(data);
+	<script>
+		$('#submit-list').click(function() {
+			var unsortedList = $('#list-input').val();
 
-	 //      }
-	 //    });
-		var unsortedList = $('#list-input').val();
-
-		$.post('/goaway', {name: unsortedList})
+			$.post('/sortit', {unsorted: unsortedList})
 			.done(function(data) {
-				console.log("Post worked " + data);
-				console.dir(data);
 				$('#list-input').val(data);
 				$('#result-text').text('Sorted!');
+			})
+			.fail(function(data) {
+				$('#result-text').text('Sort failed :(');
 			});
-	});
-</script>
+		});
+	</script>
 
 </body>
 </html>

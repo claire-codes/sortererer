@@ -1,14 +1,29 @@
-Feature: User uses site
+Feature: User uses app to sort a list
 
-	# Scenario: Click button Hello World
-	# Given I am on the sorterer page
-	# Then I should not see 'Hello World'
-	# When I click the 'submit-list' button
-	# Then I should see 'Hello World'
-
-	Scenario: Send some data off alright
-	Given I am on the sorterer page
-	When I enter "foo" in the list box
+	Scenario: An already sorted list should remain the same
+	Given I visit the List Sorter app
+	When I enter "apples,bananas,cucumbers" in the list box
 	And I click the 'submit-list' button
-	Then I should see 'foo' in the list box
+	Then I should see "apples,bananas,cucumbers" in the list box
+	And I should see 'Sorted!'
+
+	Scenario: A very simple unsorted list is sorted and returned to the textarea box
+	Given I visit the List Sorter app
+	When I enter "foo,bar" in the list box
+	And I click the 'submit-list' button
+	Then I should see "bar,foo" in the list box
+	And I should see 'Sorted!'
+
+	Scenario: A longer unsorted list is sorted and returned to the textarea box
+	Given I visit the List Sorter app
+	When I enter "foo,bar,baz,alice,babs,bob" in the list box
+	And I click the 'submit-list' button
+	Then I should see "alice,babs,bar,baz,bob,foo" in the list box
+	And I should see 'Sorted!'
+
+	Scenario: A longer mixed-case unsorted list is sorted and returned to the textarea box
+	Given I visit the List Sorter app
+	When I enter "foo,bar,baz,Alice,Babs,Bob" in the list box
+	And I click the 'submit-list' button
+	Then I should see "Alice,Babs,bar,baz,Bob,foo" in the list box
 	And I should see 'Sorted!'

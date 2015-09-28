@@ -1,7 +1,7 @@
 include Rack::Test::Methods
 
-Given(/^I am on the sorterer page$/) do
-  visit "/hi"
+Given(/^I visit the List Sorter app$/) do
+  visit "/"
 end
 
 When(/^I click the '(.*)' button$/) do |button|
@@ -17,7 +17,6 @@ Then(/^I should not see '(.*)'$/) do |text|
 end
 
 When(/^I enter "(.*)" in the list box$/) do |list|
-	# page.fill_in 'list-input', :with => list
 	textarea = find(:css, '#list-input')
 	list.split(',').each do |item|
 		textarea.send_keys(item)
@@ -26,13 +25,11 @@ When(/^I enter "(.*)" in the list box$/) do |list|
 	# TODO: Maybe not do return on last one?
 end
 
-Then(/^I should see '(.*)' in the list box$/) do |list|
-	puts 'Bananas'
-	entry =  find(:css, '#list-input').value
-	puts 'Bananas'
-	puts find(:css, '#list-input').text
-	puts 'Bananas'
-	expect(find(:css, '#list-input').value).to eq(list)
+Then(/^I should see "(.*)" in the list box$/) do |list|
+	textarea = find(:css, '#list-input').value
+	textarea_array = textarea.split("\n")
+	split_list = list.split(',')
+	expect(textarea_array).to eq(split_list)
 end
 
 And(/^I wait (\d+) seconds?$/) do |seconds|
