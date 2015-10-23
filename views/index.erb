@@ -13,7 +13,8 @@
 		<h3>Alphabetises your list</h3>
 		<div>
 			Options
-			<input type="checkbox" id="ascii" /><label for="ascii">ASCII Order</label>
+			<input type="checkbox" id="ascii" /><label for="ascii">ASCII order</label>
+			<input type="checkbox" id="reverse" /><label for="reverse">Reverse order</label>
 		<div>
 			<button type="button" id="submit-list">Sort it out</button>
 			<button type="button" id="copy-list">Copy</button>
@@ -28,9 +29,10 @@
 	<script>
 		$('#submit-list').click(function() {
 			var unsortedList = $('#unsorted-list-input').val();
-			var useAscii = document.querySelector('#ascii:checked').value;
+			var useAscii = document.getElementById('ascii').checked;
+			var useReverse = document.getElementById('reverse').checked;
 
-			$.post('/sortit', {unsorted: unsortedList, ascii: useAscii})
+			$.post('/sortit', {unsorted: unsortedList, ascii: useAscii, reverse: useReverse})
 			.done(function(data) {
 				$('#sorted-list-output').val(data);
 				$('#result-text').text('Sorted!');

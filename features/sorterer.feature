@@ -32,5 +32,5 @@ Feature: User uses app to sort a list
 	Given I visit the List Sorter app
 	When I enter "Apple,apple,cat,Cat,Chicken,chicken" in the unsorted box
 	And I click the 'submit-list' button
-	Then I should see "Apple","apple","cat","Cat","Chicken","chicken" in the sorted box
+	Then I should see "Apple,apple,cat,Cat,Chicken,chicken" in the sorted box
 	And I should see 'Sorted!'

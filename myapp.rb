@@ -8,7 +8,11 @@ class MyApp < Sinatra::Base
 	end
 
 	post '/sortit' do
-		Abc.new.order_list(params[:unsorted], params[:ascii])
+		Abc.new.order_list(params[:unsorted], ascii: to_boolean(params[:ascii]), reverse: to_boolean(params[:reverse]))
 	end
+
+	def to_boolean(str)
+      str.downcase == 'true'
+    end
 end
 
