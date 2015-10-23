@@ -73,3 +73,8 @@ Then(/^"([^"]*)" should be copied to my clipboard$/) do |list|
 	expected_list = list.split(',')
 	expect(textarea_array).to eq(expected_list)
 end
+
+When(/^I select the "([^"]*)" option$/) do |toggle|
+  check toggle
+end
+

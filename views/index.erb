@@ -12,6 +12,9 @@
 		<h1 class="delme">List Sorter</h1>
 		<h3>Alphabetises your list</h3>
 		<div>
+			Options
+			<input type="checkbox" id="ascii" /><label for="ascii">ASCII Order</label>
+		<div>
 			<button type="button" id="submit-list">Sort it out</button>
 			<button type="button" id="copy-list">Copy</button>
 		</div>
@@ -25,8 +28,9 @@
 	<script>
 		$('#submit-list').click(function() {
 			var unsortedList = $('#unsorted-list-input').val();
+			var useAscii = document.querySelector('#ascii:checked').value;
 
-			$.post('/sortit', {unsorted: unsortedList})
+			$.post('/sortit', {unsorted: unsortedList, ascii: useAscii})
 			.done(function(data) {
 				$('#sorted-list-output').val(data);
 				$('#result-text').text('Sorted!');

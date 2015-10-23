@@ -1,9 +1,13 @@
 class Abc
 
-	def order_list (unsorted_list)
-		sorted_array = from_textarea_to_array(unsorted_list).sort_by { |word|
-			word.downcase
-		}
+	def order_list (unsorted_list, ascii = false)
+		# if ascii
+		# 	sorted_array = from_textarea_to_array(unsorted_list).sort
+		# else
+			sorted_array = from_textarea_to_array(unsorted_list).sort_by { |word|
+				word.downcase unless ascii
+			}
+		# end
 		from_array_to_textarea(sorted_array)
 	end
 

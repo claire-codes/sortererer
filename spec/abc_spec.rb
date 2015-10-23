@@ -10,8 +10,14 @@ describe Abc do
 
 	end
 
-	xit 'sorts same letter, different case' do
-		expect(sorter.order_list("Cat\ncat\nbat\nBat")).to eq("Cat\ncat\nBat\nbat")
+	it 'sorts alphabet with ASCII order' do
+		expect(sorter.order_list("Cat\ncat\nbat\nBat", true)).to eq("Bat\nCat\nbat\ncat")
+		expect(sorter.order_list("Cat\ncat\nbat\nBat", false)).to eq("Bat\nbat\ncat\nCat")
+		expect(sorter.order_list("Cat\ncat\nbat\nBat")).to eq("Bat\nbat\ncat\nCat")
+	end
+
+	it 'sorts same letter, different case' do
+		expect(sorter.order_list("Cat\ncat\nbat\nBat")).to eq("Bat\nbat\ncat\nCat")
 	end
 
 	it 'strips newlines' do

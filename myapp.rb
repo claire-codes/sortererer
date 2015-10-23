@@ -8,7 +8,7 @@ class MyApp < Sinatra::Base
 	end
 
 	post '/sortit' do
-		Abc.new.order_list(params[:unsorted])
+		Abc.new.order_list(params[:unsorted], params[:ascii])
 	end
 end
 
