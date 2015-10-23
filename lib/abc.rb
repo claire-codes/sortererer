@@ -8,11 +8,17 @@ class Abc
 	end
 
 	def from_textarea_to_array(textarea)
-		textarea.split("\n")
+		remove_newlines(textarea.split("\n"))
 	end
 
 	def from_array_to_textarea(array)
 		array.join("\n")
+	end
+
+	def remove_newlines(array)
+		array.select { |entry|
+			entry unless entry =~ /^\s*$/
+		}
 	end
 
 end
