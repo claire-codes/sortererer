@@ -9,29 +9,35 @@
 
 <body>
 	<div id='wrapper'>
-		<h1>List Sorter</h1>
+		<h1 class="delme">List Sorter</h1>
 		<h3>Alphabetises your list</h3>
-		<textarea id="list-input" name="list-input"></textarea>
-
 		<div>
 			<button type="button" id="submit-list">Sort it out</button>
+			<button type="button" id="copy-list">Copy</button>
 		</div>
+		<textarea id="unsorted-list-input" name="unsorted-list-input"></textarea>
+		<textarea id="sorted-list-output" name="sorted-list-output"></textarea>
+
 
 		<div id="result-text"></div>
 	</div>
 
 	<script>
 		$('#submit-list').click(function() {
-			var unsortedList = $('#list-input').val();
+			var unsortedList = $('#unsorted-list-input').val();
 
 			$.post('/sortit', {unsorted: unsortedList})
 			.done(function(data) {
-				$('#list-input').val(data);
+				$('#sorted-list-output').val(data);
 				$('#result-text').text('Sorted!');
 			})
 			.fail(function(data) {
 				$('#result-text').text('Sort failed :(');
 			});
+		});
+
+		$('#copy-list').click(function() {
+
 		});
 	</script>
 
