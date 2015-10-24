@@ -5,11 +5,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<script src="javascripts/javascript.js"></script>
 </head>
 
 <body>
 	<div id='wrapper'>
-		<h1 class="delme">List Sorter</h1>
+		<h1>List Sorter</h1>
 		<h3>Alphabetises your list</h3>
 		<div>
 			Options
@@ -25,27 +26,6 @@
 
 		<div id="result-text"></div>
 	</div>
-
-	<script>
-		$('#submit-list').click(function() {
-			var unsortedList = $('#unsorted-list-input').val();
-			var useAscii = document.getElementById('ascii').checked;
-			var useReverse = document.getElementById('reverse').checked;
-
-			$.post('/sortit', {unsorted: unsortedList, ascii: useAscii, reverse: useReverse})
-			.done(function(data) {
-				$('#sorted-list-output').val(data);
-				$('#result-text').text('Sorted!');
-			})
-			.fail(function(data) {
-				$('#result-text').text('Sort failed :(');
-			});
-		});
-
-		$('#copy-list').click(function() {
-
-		});
-	</script>
 
 </body>
 </html>
