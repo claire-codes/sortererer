@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/base'
+require 'tilt/erb'
 require_relative 'lib/abc'
 
 class MyApp < Sinatra::Base
