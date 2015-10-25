@@ -59,15 +59,15 @@ Then(/^I should see "([^"]*)" in the sorted box$/) do |list|
 	expect(textarea_array).to eq(split_list)
 end
 
-Then(/^"([^"]*)" should be copied to my clipboard$/) do |list|
+Then(/^the sorted list "([^"]*)" should be copied to my clipboard$/) do |list|
 	# Test by copying pasting list into unsorted box
-  	elem = find(:css, '#sorted-list-output')
-	elem.send_keys(:control, 'a') #highlight all in box
-	elem.send_keys(:control, 'c')
+  	sorted_list = find(:css, '#sorted-list-output')
+	sorted_list.send_keys(:command, 'a')
+	sorted_list.send_keys(:command, 'c')
 
 	textarea = find(:css, '#unsorted-list-input')
-	textarea.send_keys(:control, 'a')
-	textarea.send_keys(:control, 'v')
+	textarea.send_keys(:command, 'a')
+	textarea.send_keys(:command, 'v')
 
 	textarea_array = textarea.value.split("\n")
 	expected_list = list.split(',')
