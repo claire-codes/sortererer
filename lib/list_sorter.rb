@@ -1,4 +1,4 @@
-class Abc
+class List_Sorter
 
 	def order_list (unsorted_list, ascii: false, reverse: false)
 		if ascii
@@ -9,9 +9,7 @@ class Abc
 			}
 		end
 
-		if reverse
-			sorted_array.reverse!
-		end
+		sorted_array.reverse! if reverse		
 		
 		from_array_to_textarea(sorted_array)
 	end
