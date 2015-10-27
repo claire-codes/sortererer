@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="javascripts/javascript.js"></script>
 </head>
 
@@ -20,22 +21,18 @@
             <input type="checkbox" id="reverse" />&nbsp;<label for="reverse">Reverse order</label>
         </div>
         <div>
-            <button type="button" id="submit-list" class="btn">Sort it out</button>
-            <button type="button" id="copy-list" class="btn">Copy</button>
+            <button type="button" id="submit-list" class="btn"><i class="fa fa-sort-amount-asc"></i>&nbsp;Sort it out</button>
+            <button type="button" id="copy-list" class="btn"><i class="fa fa-clipboard"></i>&nbsp;Copy</button>
             <span id="result-text"></span>
         </div>
+        <br />
 
     </div>
     <div class="row">
-        <div style="margin: 0 -20px" class="col-md-2"></div>
-        <div class="col-md-4">Unsorted</div>
-        <div style="margin-left: 20px" class="col-md-6">Sorted</div>
-    </div>
-    <div class="row">
-        <div style="margin: 0 -20px" class="col-md-2"></div>
-        <textarea id="unsorted-list-input" class="col-md-4" name="unsorted-list-input"></textarea>
-        <textarea id="sorted-list-output" class="col-md-4" name="sorted-list-output"></textarea>
-        <div class="col-md-2"></div>
+        <div style="margin: 0 -20px" class="col-sm-2"></div>
+        <textarea id="unsorted-list-input" class="col-sm-4" name="unsorted-list-input" placeholder="Put your unsorted list in here"></textarea>
+        <textarea id="sorted-list-output" class="col-sm-4" name="sorted-list-output" placeholder="Your sorted list will appear here"></textarea>
+        <div class="col-sm-2"></div>
     </div>
 
 </body>
