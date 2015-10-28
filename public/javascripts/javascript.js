@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener('DOMContentLoaded', function() {
 	var sortListBtn = document.querySelector('#submit-list');
 
 	sortListBtn.addEventListener('click', function() {
-		var unsortedList = encodeURI(document.getElementById('unsorted-list-input').value);
-		var useAscii = encodeURI(document.getElementById('ascii').checked);
-		var useReverse = encodeURI(document.getElementById('reverse').checked);
+		var unsortedList = document.getElementById('unsorted-list-input').value;
+		var useAscii = document.getElementById('ascii').checked;
+		var useReverse = document.getElementById('reverse').checked;
 		
 		var request = new XMLHttpRequest();
 		request.open('POST', '/sortit', true);
@@ -16,24 +16,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			} else {
 				document.getElementById('result-text').innerHTML = 'Sort failed :(';
 			}
-		}
-		request.send('unsorted=' + unsortedList + '&ascii=' + useAscii + '&reverse=' + useReverse);
+		};
+		request.send(encodeURI('unsorted=' + unsortedList + '&ascii=' + useAscii + '&reverse=' + useReverse));
 		
 	});
 
 	var copyListBtn = document.querySelector('#copy-list');
 
 	copyListBtn.addEventListener('click', function() {  
-	  var sortedList = document.querySelector('#sorted-list-output');  
-	  sortedList.select();
+		var sortedList = document.querySelector('#sorted-list-output');  
+		sortedList.select();
 
-	  try {  
-	    var successful = document.execCommand('copy');  
-	    var msg = successful ? 'Copied!' : 'Copying is not supported';  
-	    document.getElementById('result-text').innerHTML = 'Copied!'; 
-	  } catch(err) {  
-	    document.getElementById('result-text').innerHTML = 'Oops, unable to copy';  
-	  }  
+		try {
+			var successful = document.execCommand('copy');
+		} catch(err) {
+			console.log(err);  
+		}
+		document.getElementById('result-text').innerHTML = 'Copied!'; 
 	});
 
 });
