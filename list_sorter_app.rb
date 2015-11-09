@@ -9,7 +9,7 @@ class ListSorterApp < Sinatra::Base
   end
 
   post '/sortit' do
-    List_Sorter.new.order_list(
+    ListSorter.new.order_list(
       params[:unsorted],
       ascii: to_boolean(params[:ascii]),
       reverse: to_boolean(params[:reverse])

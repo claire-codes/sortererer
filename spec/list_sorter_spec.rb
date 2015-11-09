@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe List_Sorter do
-  let(:sorter) { List_Sorter.new }
+describe ListSorter do
+  let(:sorter) { ListSorter.new }
 
   it 'simple happy path' do
     expect(sorter.order_list("a\nb\nc")).to eq("a\nb\nc")
