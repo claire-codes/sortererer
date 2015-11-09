@@ -11,15 +11,24 @@ body
   margin: 0 auto
   width: 600px
   text-align: center
+  div
+    margin-bottom: 5px
 
-#unsorted-list-input, #sorted-list-output
+.list-box
   height: 250px
   border: 5px solid #ccc
   border-radius: 5px
   font-size: 16px
   font-family: 'Nunito', sans-serif
-  margin: 0 20px
   padding: 0
+  box-sizing: border-box
+  width: 49%
+
+#unsorted-list-input
+  float: left
+
+#sorted-list-output
+  float: right
 
 .btn
   background-color: $primary-color
@@ -33,3 +42,21 @@ body
     color: $primary-color
     border: 1px solid $primary-color
     border-radius: 5px
+
+.list-row
+  width: 80%
+  margin: 0 auto
+
+.list-row:after 
+  content: ""
+  clear: both
+  display: block
+
+@media only screen and (max-width: 768px)
+  #wrapper
+    width: 95%
+
+  .list-box
+    width: 100%
+    margin-bottom: 5px
+
