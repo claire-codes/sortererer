@@ -1,6 +1,6 @@
 
 require 'sass/plugin/rack'
-require "./list_sorter_app"
+require './list_sorter_app'
 
 Sass::Plugin.options[:style] = :compressed
 use Sass::Plugin::Rack
